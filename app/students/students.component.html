@@ -1,0 +1,56 @@
+﻿<div class="app-title">
+    <div class="container">
+
+        <header>
+            <h3><span class="glyphicon glyphicon-user"></span>
+            {{title}} {{students.length}}
+            
+            </h3>
+        </header>
+        <br />
+        <div class="row">
+            <div class="col-md-8">
+                <div class="navbar">
+                    <filter-textbox (changed)="filterChanged($event)"></filter-textbox>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <a class="btn btn-default" [routerLink]="['/student', '0']">Add New Student</a>
+            </div>
+        </div>
+        <!--<div class="row grid-container">
+            <div class="col-md-10">
+                <div class="table">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Email</th>
+                                <th>Gender</th>
+                                <th>GPA</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let student of students">
+
+                                <td><a [routerLink]="['/student',student.id]">{{ student.firstName }} </a></td>
+                                <td>{{ student.lastName }}</td>
+                                <td>{{ student.email }}</td>
+                                <td>{{ student.gender}}</td>
+                                <td>{{ student.gpa }}</td>
+                            </tr>
+                            <tr *ngIf="!students.length">
+                                <td>&nbsp;</td>
+                                <td colspan="6">No Records Found</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>-->
+        <students-grid [students]="students"></students-grid>
+        <pagination [totalItems]="totalRecords"
+                    [pageSize]="pageSize"
+                    (pageChanged)="pageChanged($event)"></pagination>
+</div>
